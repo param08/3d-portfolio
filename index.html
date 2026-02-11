@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Param Solanki — 3D Portfolio</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Intro / Start Gate -->
+  <div id="gate" class="gate">
+    <div class="gate__card">
+      <p class="kicker">INTERACTIVE PORTFOLIO</p>
+      <h1 class="title">Param Solanki</h1>
+      <p class="sub">
+        Scroll-driven 3D experience • Works best on desktop • Use headphones for sound (optional)
+      </p>
+
+      <div class="gate__row">
+        <button id="startBtn" class="btn">START</button>
+        <button id="soundBtn" class="btn btn--ghost" aria-pressed="false">SOUND: OFF</button>
+      </div>
+
+      <p class="hint">Tip: Use mouse wheel / trackpad to scroll</p>
+    </div>
+  </div>
+
+  <!-- WebGL Canvas -->
+  <canvas id="webgl"></canvas>
+
+  <!-- UI Overlay -->
+  <header class="topbar">
+    <div class="brand">Param</div>
+    <nav class="nav">
+      <a href="#about" class="nav__link">About</a>
+      <a href="#skills" class="nav__link">Skills</a>
+      <a href="#projects" class="nav__link">Projects</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Scroll container -->
+  <main id="scroll" class="scroll">
+    <section class="panel panel--hero">
+      <div class="card">
+        <p class="kicker">PORTFOLIO</p>
+        <h2 class="h1">Hi, I’m Param Solanki</h2>
+        <p class="p">
+          I build modern websites and interactive experiences. This portfolio is a scroll-driven 3D journey.
+        </p>
+        <div class="row">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn btn--ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <div class="card">
+        <p class="kicker">ABOUT</p>
+        <h2 class="h2">Who I am</h2>
+        <p class="p">
+          I’m a Computer Engineering graduate (2025). I love building clean UI, smooth animations,
+          and responsive websites that look premium.
+        </p>
+        <p class="p">
+          I’m currently focused on: portfolio websites, business websites, landing pages, and interactive front-end.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="panel">
+      <div class="card">
+        <p class="kicker">SKILLS</p>
+        <h2 class="h2">What I use</h2>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">Elementor</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">UI / UX</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="panel">
+      <div class="card">
+        <p class="kicker">WORK</p>
+        <h2 class="h2">Projects</h2>
+
+        <div class="project">
+          <h3 class="h3">Project 1 — Portfolio Website</h3>
+          <p class="p">A modern responsive portfolio with animations and smooth scrolling.</p>
+        </div>
+
+        <div class="project">
+          <h3 class="h3">Project 2 — Business Landing Page</h3>
+          <p class="p">High-converting landing page design with clean layout and fast loading.</p>
+        </div>
+
+        <div class="project">
+          <h3 class="h3">Project 3 — WordPress Website</h3>
+          <p class="p">WordPress + Elementor site with mobile-first design and premium look.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="panel">
+      <div class="card">
+        <p class="kicker">CONTACT</p>
+        <h2 class="h2">Let’s work together</h2>
+        <p class="p">Email: <a class="link" href="mailto:solanki2.2000@gmail.com">solanki2.2000@gmail.com</a></p>
+        <p class="p">Phone: <a class="link" href="tel:+918156077613">+91 8156077613</a></p>
+        <p class="p">GitHub: <a class="link" href="#" target="_blank" rel="noreferrer">your-github-link</a></p>
+        <p class="p">LinkedIn: <a class="link" href="#" target="_blank" rel="noreferrer">your-linkedin-link</a></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Param Solanki</p>
+    </footer>
+  </main>
+
+  <!-- Three.js (CDN) -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
