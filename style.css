@@ -1,0 +1,203 @@
+:root{
+  --bg: #05070d;
+  --glass: rgba(0,0,0,.38);
+  --border: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+  --shadow: 0 20px 70px rgba(0,0,0,.55);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden; /* we use our own scroll container */
+}
+
+/* WebGL canvas */
+#webgl{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display:block;
+  z-index: 0;
+}
+
+/* Top bar */
+.topbar{
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+}
+
+.brand{ font-weight: 800; letter-spacing: .5px; }
+
+.nav{ display:flex; gap: 10px; flex-wrap: wrap; }
+.nav__link{
+  color: var(--muted);
+  text-decoration:none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 180ms ease;
+}
+.nav__link:hover{
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255,255,255,.04);
+}
+
+/* Scroll container (snaps panels) */
+.scroll{
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
+}
+
+.panel{
+  min-height: 100vh;
+  width: 100%;
+  display:grid;
+  place-items: center;
+  padding: 100px 18px 70px;
+  scroll-snap-align: start;
+}
+
+.panel--hero{
+  padding-top: 120px;
+}
+
+.card{
+  width: min(900px, 100%);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.kicker{
+  letter-spacing: 4px;
+  font-size: 12px;
+  opacity: .8;
+  margin:0 0 10px;
+}
+
+.h1{ font-size: clamp(34px, 4vw, 54px); margin:0 0 8px; }
+.h2{ font-size: clamp(24px, 3vw, 34px); margin:0 0 12px; }
+.h3{ font-size: 18px; margin: 0 0 6px; }
+
+.p{
+  margin: 0 0 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.row{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn{
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.92);
+  color: #05070d;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 180ms ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+
+.btn--ghost{
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+
+.link{ color: rgba(255,255,255,.90); }
+.link:hover{ opacity: .85; }
+
+.chips{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
+.chip{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(255,255,255,.86);
+  font-size: 14px;
+}
+
+.project{
+  border-top: 1px solid rgba(255,255,255,.09);
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+.footer{
+  height: 140px;
+  display:grid;
+  place-items:center;
+  color: rgba(255,255,255,.65);
+}
+
+/* Gate */
+.gate{
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display:grid;
+  place-items:center;
+  background: radial-gradient(1200px 800px at 50% 40%, rgba(255,255,255,.06), rgba(0,0,0,.92));
+}
+
+.gate__card{
+  width: min(760px, calc(100% - 36px));
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  padding: 26px;
+  text-align: center;
+}
+
+.title{
+  margin: 10px 0 10px;
+  font-size: clamp(34px, 4vw, 56px);
+}
+
+.sub{ margin: 0 auto 18px; max-width: 52ch; color: var(--muted); line-height: 1.6; }
+.gate__row{ display:flex; justify-content:center; gap: 12px; flex-wrap: wrap; }
+.hint{ margin: 16px 0 0; color: rgba(255,255,255,.65); font-size: 13px; }
+
+/* Responsive */
+@media (max-width: 520px){
+  .topbar{ border-radius: 18px; }
+  .nav{ gap: 6px; }
+  .nav__link{ padding: 7px 10px; font-size: 14px; }
+}
